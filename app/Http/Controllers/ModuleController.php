@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreModuleRequest;
-use App\Http\Requests\UpdateModuleRequest;
+use App\Http\Requests\Request;
 use App\Models\Module;
 
 class ModuleController extends Controller
@@ -27,7 +26,7 @@ class ModuleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreModuleRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -51,7 +50,7 @@ class ModuleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateModuleRequest $request, Module $module)
+    public function update(Request $request, Module $module)
     {
         //
     }
