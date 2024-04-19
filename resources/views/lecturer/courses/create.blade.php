@@ -10,6 +10,7 @@
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
                 <form action="{{ route('lecturer.courses.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
+                        
                     <x-text-input
                         type="text"
                         name="course_name"

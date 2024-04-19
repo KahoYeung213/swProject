@@ -12,8 +12,12 @@ return new class extends Migration
     public function up()
     {
         Schema::table('modules', function (Blueprint $table) {
-            $table->unsignedBigInteger('course_id')->default(1);
-            $table->foreign('course_id')->references('id')->on('courses')->onUpdate('cascade')->onDelete('restrict');
+            $table->unsignedBigInteger('course_id')->nullable();
+            $table->foreign('course_id')
+                  ->references('id')
+                  ->on('courses')
+                  ->onUpdate('cascade')
+                  ->onDelete('restrict');
         });
     }
 
@@ -28,3 +32,4 @@ return new class extends Migration
         });
     }
 };
+

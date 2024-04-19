@@ -1,51 +1,51 @@
-<div>
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create module') }}
+            {{ __('Create Courses') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
-                <form action="{{ route('lecturer.courses.update', $module) }}" method="post" enctype="multipart/form-data">
-                    @method('put')
+            <form action="{{ route('lecturer.courses.update', ['course' => $course]) }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
+
+                    <input type="hidden" name="course_id" value="{{ old('course_id') }}">
+
                     <x-text-input
                         type="text"
-                        name="module_name"
-                        field="module_name"
-                        placeholder="module name"
+                        name="course_name"
+                        field="course_name"
+                        placeholder="Course Name"
                         class="w-full"
                         autocomplete="off"
-                        :value="@old('module_name', $module->module_name)"></x-text-input>
-
+                        :value="@old('course_name')">
+                    </x-text-input>
 
                     <x-text-input
-                        name="credits"
-                        rows="10"
-                        field="credits"
-                        placeholder="credits..."
-                        class="w-full mt-6"
-                        :value="@old('credits', $module->credits)">
+                        type="text"
+                        name="number_of_students"
+                        field="number_of_students"
+                        placeholder="Number of Students"
+                        class="w-full"
+                        autocomplete="off"
+                        :value="@old('number_of_students')">
                     </x-text-input>
                   
                     <x-file-input
                         type="file"
-                        name="module_image"
-                        placeholder="module_image"
+                        name="course_image"
+                        placeholder="course Image"
                         class="w-full mt-6"
-                        field="module_image"
-                        :value="@old('module_image', $module->module_image)">>
+                        field="course_image"
+                        :value="@old('course_image')">>
                     </x-file-input>
 
-                    
-
-                    <x-primary-button class="mt-6">save</x-primary-button>
+                    <x-primary-button class="mt-6">Save Course</x-primary-button>
                 </form>
             </div>
         </div>
     </div>
 </x-app-layout>
-</div>

@@ -46,7 +46,7 @@ class CourseController extends Controller
     
         $request->validate([
             'course_name' => 'required',
-            'credits' => 'required|numeric',
+            'number_of_students' => 'required|numeric',
             'course_image' => 'required|image|mimes:jpeg,png,gif|max:2048',
         ]);
     

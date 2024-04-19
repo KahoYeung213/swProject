@@ -10,6 +10,8 @@
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
                 <form action="{{ route('lecturer.modules.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="course_id" value="{{ old('course_id') ?? $selected }}">
+
                     <x-text-input
                         type="text"
                         name="module_name"
@@ -38,6 +40,13 @@
                         field="module_image"
                         :value="@old('module_image')">>
                     </x-file-input>
+                    
+
+                    
+
+                    <div class="mt-6">
+                        <x-select-course name="course_id" :courses="$courses" :selected="old('course_id')"/>
+                    </div>
 
                     <x-primary-button class="mt-6">Save Module</x-primary-button>
                 </form>

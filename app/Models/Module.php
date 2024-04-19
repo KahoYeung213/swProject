@@ -17,6 +17,7 @@ class Module extends Model
         'module_name',
         'credits',
         'module_image',
+        'course_id',
     ];
 
     public function course()
