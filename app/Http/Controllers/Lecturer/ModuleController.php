@@ -17,7 +17,9 @@ class ModuleController extends Controller
         $user = Auth::user();
         $user->authorizeRoles('lecturer');
     
-        $modules = Module::paginate(10);
+        // $modules = Module::paginate(10);
+        $modules = Module::with('course')->get();
+
     
         return view('lecturer.modules.index')->with('modules', $modules);
     }

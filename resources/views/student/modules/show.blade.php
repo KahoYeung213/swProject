@@ -14,23 +14,23 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
                     <table class="table table-hover">
-                        <tbody>
-                          <tr>
+                        <tr>
                             <td rowspan="6">
                                 <img src="{{ asset($module->module_image) }}"
-                                alt="{{$module->module_name}}" width="100">
+                                alt="{{$module->module_name}}" width="500">
                             </td>
                             </tr>
                             <tr>
-                                <td class="font-bold ">module_name  </td>
+                                <td class="font-bold ">Module: </td>
                                 <td>{{ $module->module_name }}</td>
                             </tr>
                            
                             <tr>
-                                <td class="font-bold">credits </td>
+                                <td class="font-bold">credits: </td>
                                 <td>{{ $module->credits }}</td>
                             </tr>
-                        </tbody>
+                        </tr>    
+
 
                         
                     </table>

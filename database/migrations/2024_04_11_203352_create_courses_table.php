@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('course_name');
             $table->string('number_of_students');
+            $table->string('course_image');
+
             $table->timestamps();
         });
     }
@@ -27,3 +29,4 @@ return new class extends Migration
         Schema::dropIfExists('courses');
     }
 };
+

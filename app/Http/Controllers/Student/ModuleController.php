@@ -16,20 +16,19 @@ class ModuleController extends Controller
     {
         $user = Auth::user();
         $user->authorizeRoles('student');
-
+    
         $modules = Module::paginate(10);
-
+    
         return view('student.modules.index')->with('modules', $modules);
     }
 
    
     public function show($id)
     {
-
         $user = Auth::user();
         $user->authorizeRoles('student');
 
-        $modules = Module::find($id);
-        return view('student.modules.show')->with('module',$modules);
+        $module = Module::findOrFail($id);
+        return view('student.modules.show')->with('module', $module);
     }
 }

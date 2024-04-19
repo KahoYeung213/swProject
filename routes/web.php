@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Lecturer\ModuleController as LecturerModuleController;
 use App\Http\Controllers\Student\ModuleController as StudentModuleController;
+use App\Http\Controllers\Lecturer\CourseController as LecturerCourseController;
+use App\Http\Controllers\Student\CourseController as StudentCourseController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,8 +22,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('/lecturer/modules', LecturerModuleController::class)->middleware(['auth'])->names('lecturer.modules');
     Route::resource('/student/modules', StudentModuleController::class)->middleware(['auth'])->names('student.modules')->only(['index', 'show']);
+
+    Route::resource('/lecturer/courses', LecturerCourseController::class)->middleware(['auth'])->names('lecturer.courses');
+    Route::resource('/student/courses', StudentCourseController::class)->middleware(['auth'])->names('student.courses')->only(['index', 'show']);
     // the routes will only be available when a student is logged in
-    Route::resource('games',GameController::class);
+    Route::resource('modules',ModuleController::class);
+    Route::resource('coursess',CourseController::class);
+
 });
 
 require __DIR__.'/auth.php';

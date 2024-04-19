@@ -19,16 +19,18 @@
          
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('lecturer.modules.index')" :active="request()->routeIs('lecturer.modules.index')">
-                        {{ __('show all modules') }}
+                    <x-nav-link :href="route('lecturer.courses.index')" :active="request()->routeIs('lecturer.courses.index')">
+                        {{ __('show all courses (Lecturers)') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('lecturer.modules.create')" :active="request()->routeIs('lecturer.modules.create')">
-                        {{ __('Create Modules') }}
+                    <x-nav-link :href="route('student.modules.index')" :active="request()->routeIs('student.modules.index')">
+                        {{ __('show all modules (Students)') }}
                     </x-nav-link>
                 </div>
+
+                
            
 
             <!-- Settings Dropdown -->
